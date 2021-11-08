@@ -1,0 +1,21 @@
+{% extends "home/base.html" %} {% load static %} {% block content %}
+<div class="search">
+  <input type="search" name="" id="" placeholder="Search..." />
+</div>
+<div class="top_middle_dash">
+  <div class="Meetings">
+    <h2>Meetings</h2>
+    <h3>5</h3>
+  </div>
+  <div class="Projects">
+    <h2>Projects</h2>
+    <h3>5</h3>
+  </div>
+  <div class="Leave">
+    <h2>Leave</h2>
+    <h3>0</h3>
+  </div>
+</div>
+{% for employee in employees %}
+<p>{{employee}}</p>
+{% endfor %} {% endblock content %}

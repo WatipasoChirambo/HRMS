@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/main.css' %}" />
+    <title>Turn Up</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bottom">
+        <div class="main">
+          <div class="Navigation">
+            <div class="logo">
+              <!-- <img src="{% static "/images/smallLogo.png" %}" alt="Company Logo"
+              srcset=""> -->
+              <h2>
+                LOGO
+              </h2>
+            </div>
+            <ul class="navTingz">
+              <li><a href="">Dashboard</a></li>
+              <li><a href="">Staff</a></li>
+              <li><a href="">Departments</a></li>
+              <li><a href="">Projects</a></li>
+              <li><a href="">Meetings</a></li>
+            </ul>
+          </div>
+          <div class="center">
+            {% block content %} {% endblock %}
+          </div>
+          <div class="right_side">
+            <div class="upcoming_meetings">
+              <h3>Upcoming Meetings</h3>
+              <p>4</p>
+            </div>
+            <div class="upcoming_projects">
+              <h3>Upcoming Projects</h3>
+              <p>5</p>
+            </div>
+            <div class="activities">
+              <div class="activities_header">
+                <h2>Activities</h2>
+                <a href=""><h5>view all</h5></a>
+              </div>
+              <div class="all_activities">
+                <div>
+                  <h5>NEW</h5>
+                </div>
+                <ul>
+                  <li>Get with the program: Watipaso</li>
+                  <li>The program</li>
+                  <li>Program</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
