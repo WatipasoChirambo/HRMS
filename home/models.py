@@ -105,14 +105,14 @@ class Project(models.Model):
     manager = models.OneToOneField('Employee', blank=True, null=True,on_delete=models.CASCADE)
     members = models.ManyToManyField(Employee, related_name="project_members")
     goals = models.ManyToManyField(Goal, related_name="project_Goals")
-    files = models.ForeignKey("ProjectFiles", on_delete=models.CASCADE, null=True, blank=True)
+    files = models.ManyToManyField("ProjectFile", related_name="project_Files")
     start_date = models.DateTimeField()
     finish_date = models.DateTimeField()
 
     def __str__(self):
         return self.title
 
-class ProjectFiles(models.Model):
+class ProjectFile(models.Model):
     file = models.FileField(upload_to="media/", max_length=254, null=True, blank=True)
     date_uploaded = models.DateField(auto_now_add=True)
 
