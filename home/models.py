@@ -69,15 +69,15 @@ class Contractor(models.Model):
     def __str__(self):
         return self.name
 
-# class EmployeeLeave(models.Model):
-#     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
-#     leave_start_date = models.DateTimeField(auto_now_add=True)
-#     leave_taken = models.BooleanField(default=False)  
-#     leave_end_date = models.DateTimeField()
-#     leave_end = models.BooleanField(default=False)
+class EmployeeLeave(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    leave_start_date = models.DateTimeField(auto_now_add=True)
+    leave_taken = models.BooleanField(default=False)  
+    leave_end_date = models.DateTimeField()
+    leave_end = models.BooleanField(default=False)
 
-#     def __str__(self):
-#         return self.employee.username 
+    def __str__(self):
+        return self.employee.username 
 
 
 class Meeting(models.Model):
