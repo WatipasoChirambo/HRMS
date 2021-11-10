@@ -16,44 +16,47 @@
             <div class="logo">
               <!-- <img src="{% static "/images/smallLogo.png" %}" alt="Company Logo"
               srcset=""> -->
-              <h2>
-                LOGO
-              </h2>
+              <h1>LOGO</h1>
             </div>
             <ul class="navTingz">
-              <li><a href="">Dashboard</a></li>
-              <li><a href="">Staff</a></li>
-              <li><a href="">Departments</a></li>
-              <li><a href="">Projects</a></li>
+              <li><a href="{% url 'home' %}">Dashboard</a></li>
+              <li><a href="{% url 'staff' %}">Staff</a></li>
+              <li><a href="{% url 'departments' %}">Departments</a></li>
+              <li><a href="{% url 'projects' %}">Projects</a></li>
               <li><a href="">Meetings</a></li>
             </ul>
           </div>
           <div class="center">
-            {% block content %} {% endblock %}
-          </div>
-          <div class="right_side">
-            <div class="upcoming_meetings">
-              <h3>Upcoming Meetings</h3>
-              <p>4</p>
-            </div>
-            <div class="upcoming_projects">
-              <h3>Upcoming Projects</h3>
-              <p>5</p>
-            </div>
-            <div class="activities">
-              <div class="activities_header">
-                <h2>Activities</h2>
-                <a href=""><h5>view all</h5></a>
+            <div>
+              <div class="search">
+                <input type="search" name="" id="" placeholder="Search..." />
               </div>
-              <div class="all_activities">
-                <div>
-                  <h5>NEW</h5>
+              {% block content %} {% endblock %}
+            </div>
+            <div class="right_side">
+              <div class="upcoming_meetings">
+                <h3>Upcoming Meetings</h3>
+                <p>4</p>
+              </div>
+              <div class="upcoming_projects">
+                <h3>Upcoming Projects</h3>
+                <p>5</p>
+              </div>
+              <div class="activities">
+                <div class="activities_header">
+                  <h2>Activities</h2>
+                  <a href=""><h5>view all</h5></a>
                 </div>
-                <ul>
-                  <li>Get with the program: Watipaso</li>
-                  <li>The program</li>
-                  <li>Program</li>
-                </ul>
+                <div class="all_activities">
+                  <div>
+                    <h5>NEW</h5>
+                  </div>
+                  <ul>
+                    <li>Get with the program: Watipaso</li>
+                    <li>The program</li>
+                    <li>Program</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

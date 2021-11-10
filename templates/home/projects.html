@@ -1,0 +1,21 @@
+{% extends "home/base.html" %} {% load static %} {% block content %}
+<div>
+    <h2>
+        Projects
+    </h2>
+</div>
+<div class="projects">
+    {% for project in projects %}
+    <div class="project">
+        <h2>{{project.title}}</h2>
+        <h4>Goals</h4>
+        <ul>
+            {% for goal in project.goals.all %}
+            <li>{{ goal }}</li>
+                {% endfor %}
+        </ul>
+        <h3>5</h3>
+      </div>
+    {% endfor %}
+</div>
+{% endblock content %}

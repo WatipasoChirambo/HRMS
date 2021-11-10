@@ -1,0 +1,25 @@
+{% extends "home/base.html" %} {% load static %} {% block content %}
+
+<div>
+  <h2 class="staff_heading"><u>Members Of Staff</u></h2>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Department</th>
+    <th>Nationality</th>
+    <th>Gender</th>
+  </tr>
+{% for staf in staff %}
+  <tr>
+    <td>{{staf.first_name}}</td>
+    <td>{{staf.last_name}}</td>
+    <td>{{staf.groups.all.0.name}}</td>
+    <td>{{staf.nationality}}</td>
+    <td>{{staf.gender}}</td>
+  </tr>
+  {% endfor %}
+</table>
+  </ul>
+</div>
+{% endblock content %}

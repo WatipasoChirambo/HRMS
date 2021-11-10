@@ -5,7 +5,7 @@ body {
 }
 .main {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 0.5fr 3fr;
   gap: 4%;
 }
 .Navigation {
@@ -34,6 +34,12 @@ body {
 .center {
   background-color: white;
   padding: 4%;
+  display:grid;
+  grid-template-columns: 3fr 1fr;
+  gap:4%;
+}
+.staff_heading{
+  color:#bb9140;
 }
 .Meetings {
   border-radius: 4%;
@@ -112,4 +118,66 @@ body {
 }
 .all_activities>div>p{
     color: dimgray;
+}
+
+
+/* Meetings Table */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  color:white;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8%;
+}
+
+td, th {
+  border: 1px solid #CEA509;
+  text-align: left;
+  padding: 8px;
+}
+th{
+  color:white;
+  background-color:#CEA509;
+}
+
+tr{
+  color:black;
+}
+tr:hover{
+  color:white;
+  background-color:#DFC04A;
+  cursor:pointer;
+}
+
+/* dnosiuhsiud */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4%;
+  margin-top: 5%;
+  padding: 4%;
+  border-radius: 2%;
+}
+.project{
+  background-color: black;
+  color:white;
+  text-align: center;
+  padding:3%;
+}
+.project:hover{
+  box-shadow: 5px 5px #DFC04A;
+  cursor:pointer;
+}
+.project>ul{
+  text-align:justify;
+}
+.project>h4{
+  text-align:justify;
+}
+.project>h2{
+  color:#DFC04A;
 }

@@ -1,0 +1,18 @@
+{% extends "home/base.html" %} {% load static %} {% block content %}
+<table class="center">
+  <tr>
+    <th>Agenda</th>
+    <th>Leader</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+  </tr>
+  {% for meeting in meetings %}
+  <tr>
+    <td>{{meeting.agenda}}</td>
+    <td>{{meeting.leader}}</td>
+    <td>{{meeting.start_time}}</td>
+    <td>{{meeting.end_time}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock content %}
