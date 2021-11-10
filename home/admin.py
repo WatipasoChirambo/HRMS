@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Employee,EmployeeLeave, Department, Contractor, Meeting, Project, Goal, ProjectFile
+from .models import Employee,EmployeeLeave, Department, Contractor, Meeting, Project, Goal, ProjectFile, Task
 # Register your models here
 admin.site.register(Employee)
 admin.site.register(Department)
@@ -9,3 +9,4 @@ admin.site.register(Contractor)
 admin.site.register(Goal)
 admin.site.register(ProjectFile)
 admin.site.register(EmployeeLeave)
+admin.site.register(Task)

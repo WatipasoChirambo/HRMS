@@ -1,15 +1,16 @@
 from django.shortcuts import render
-from .models import Meeting, Project, Department, Employee
+from .models import Meeting, Project, Department, Employee, Task
 
 # Create your views here.
 def index(request):
-    upcoming_meetings = Meeting.objects.count()
-    upcoming_projects = Project.objects.count()
+    staff = Employee.objects.all()
+    tasks = Task.objects.all()
     context = {
-        'upcoming_meetings':upcoming_meetings,
-        "upcoming_projects":upcoming_projects
+        'staff':staff,
+        "tasks":tasks
     }
     return render(request, 'home/home.html', context)
+
 
 def meetings_view(request):
     meetings = Meeting.objects.all()

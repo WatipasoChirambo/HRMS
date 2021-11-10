@@ -23,13 +23,13 @@
               <li><a href="{% url 'staff' %}">Staff</a></li>
               <li><a href="{% url 'departments' %}">Departments</a></li>
               <li><a href="{% url 'projects' %}">Projects</a></li>
-              <li><a href="">Meetings</a></li>
+              <li><a href="{% url 'meetings' %}">Meetings</a></li> 
             </ul>
           </div>
           <div class="center">
             <div>
               <div class="search">
-                <input type="search" name="" id="" placeholder="Search..." />
+                <input type="search" name="search" id="" placeholder="Search..."/>
               </div>
               {% block content %} {% endblock %}
             </div>
@@ -52,9 +52,9 @@
                     <h5>NEW</h5>
                   </div>
                   <ul>
-                    <li>Get with the program: Watipaso</li>
-                    <li>The program</li>
-                    <li>Program</li>
+                    {% for task in tasks %}
+                    <li>{{task.title}}</li>
+                    {% endfor %}
                   </ul>
                 </div>
               </div>

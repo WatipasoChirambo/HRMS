@@ -31,6 +31,9 @@ body {
   list-style: none;
   padding: 5%;
 }
+.welcome>h1{
+  color:#D4B63E;
+}
 .center {
   background-color: white;
   padding: 4%;
@@ -162,6 +165,18 @@ tr:hover{
   padding: 4%;
   border-radius: 2%;
 }
+div>.Projects{
+  background-color: black;
+  color:white;
+}
+div>.Leave{
+  background-color: black;
+  color:white;
+}
+div>.Meetings{
+  background-color: black;
+  color:white;
+}
 .project{
   background-color: black;
   color:white;
@@ -169,14 +184,15 @@ tr:hover{
   padding:3%;
 }
 .project:hover{
+  transition:ease-in;
   box-shadow: 5px 5px #DFC04A;
   cursor:pointer;
 }
 .project>ul{
-  text-align:justify;
+  text-align:center;
 }
 .project>h4{
-  text-align:justify;
+  text-align:center;
 }
 .project>h2{
   color:#DFC04A;

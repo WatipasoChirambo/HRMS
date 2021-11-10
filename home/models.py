@@ -57,7 +57,7 @@ class Employee(AbstractUser):
 class Department(Group):
     dep_name = models.CharField(max_length=100, blank=True, null=True)
     hod = models.ForeignKey("Employee", on_delete=models.CASCADE, related_name="department_head", null=True, blank=True)
-    members = models.ManyToManyField(Employee, related_name="department_members")
+    members = models.ManyToManyField(Employee, related_name="department_members", null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -102,7 +102,7 @@ class Goal(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=120)
-    manager = models.OneToOneField('Employee', blank=True, null=True,on_delete=models.CASCADE)
+    manager = models.ManyToManyField('Employee', blank=True, null=True)
     members = models.ManyToManyField(Employee, related_name="project_members")
     goals = models.ManyToManyField(Goal, related_name="project_Goals")
     files = models.ManyToManyField("ProjectFile", related_name="project_Files")
@@ -112,12 +112,17 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+class Task(models.Model):
+    title = models.CharField(max_length=50)
+    handler = models.OneToOneField("Employee", on_delete=models.CASCADE, related_name="task_handler", blank=True)
+
+    def __str__(self):
+        return self.title
+
 class ProjectFile(models.Model):
     file = models.FileField(upload_to="media/", max_length=254, null=True, blank=True)
     date_uploaded = models.DateField(auto_now_add=True)
 
-    def __str__(self):
-        return self.file
 
 
     
