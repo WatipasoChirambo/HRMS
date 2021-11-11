@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     "phonenumber_field",
+    'tailwind',
 ]
+TAILWIND_APP_NAME = 'home'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

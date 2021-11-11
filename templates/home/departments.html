@@ -6,11 +6,13 @@
 </div>
 <div class="projects">
     {% for department in departments %}
+    <a id="update" href="{% url 'department' department.id %}">
     <div class="project">
         <h2>{{department.name}}</h2>
         <p>Members</p>
         <h3>5</h3>
       </div>
+    </a>
     {% endfor %}
 </div>
 {% endblock content %}

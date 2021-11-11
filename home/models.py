@@ -57,7 +57,7 @@ class Employee(AbstractUser):
 class Department(Group):
     dep_name = models.CharField(max_length=100, blank=True, null=True)
     hod = models.ForeignKey("Employee", on_delete=models.CASCADE, related_name="department_head", null=True, blank=True)
-    members = models.ManyToManyField(Employee, related_name="department_members", null=True, blank=True)
+    members = models.ManyToManyField(Employee, related_name="department_members", blank=True)
 
     def __str__(self):
         return self.name
@@ -86,11 +86,18 @@ class Meeting(models.Model):
     briefing = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    files = models.ManyToManyField("MeetingFile", related_name="meeting_Files")
     participants = models.ManyToManyField(Employee)
+    notes_taker = models.OneToOneField("Employee", on_delete=models.CASCADE, related_name="note_taker", blank=True, null=True)
     
 
     def __str__(self):
         return self.agenda
+
+class MeetingFile(models.Model):
+    file = models.FileField(upload_to="media/", max_length=254, null=True, blank=True)
+    date_uploaded = models.DateField(auto_now_add=True)
+
 
 class Goal(models.Model):
     name = models.CharField(max_length=50)
@@ -102,7 +109,7 @@ class Goal(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=120)
-    manager = models.ManyToManyField('Employee', blank=True, null=True)
+    manager = models.ManyToManyField('Employee', blank=True)
     members = models.ManyToManyField(Employee, related_name="project_members")
     goals = models.ManyToManyField(Goal, related_name="project_Goals")
     files = models.ManyToManyField("ProjectFile", related_name="project_Files")
@@ -112,16 +119,25 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
-class Task(models.Model):
-    title = models.CharField(max_length=50)
-    handler = models.OneToOneField("Employee", on_delete=models.CASCADE, related_name="task_handler", blank=True)
-
-    def __str__(self):
-        return self.title
-
 class ProjectFile(models.Model):
     file = models.FileField(upload_to="media/", max_length=254, null=True, blank=True)
     date_uploaded = models.DateField(auto_now_add=True)
+
+class Task(models.Model):
+    STATUS=(
+        ("Completed", "Completed"),
+        ("pending", "pending"),
+        ("Not Completed", "Not Completed"),
+    )
+    title = models.CharField(max_length=50)
+    handler = models.OneToOneField("Employee", on_delete=models.CASCADE, related_name="task_handler", blank=True)
+    assigned_date = models.DateField(auto_now_add=False, blank=True, null=True)
+    completion_date = models.DateField(auto_now_add=False, blank=True, null=True)
+    status = models.CharField(max_length=120, choices=STATUS, null=True)
+    
+    
+    def __str__(self):
+        return self.title
 
 
 

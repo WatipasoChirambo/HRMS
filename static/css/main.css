@@ -60,6 +60,9 @@ body {
 .Projects > h2 {
   color: #bb9140;
 }
+a{
+  text-decoration:none;
+}
 .Leave {
   border-radius: 4%;
   text-align: center;
@@ -68,9 +71,9 @@ body {
 .Leave > h2 {
   color: #bb9140;
 }
-.search {
+.top_nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 .top_middle_dash {
   display: grid;

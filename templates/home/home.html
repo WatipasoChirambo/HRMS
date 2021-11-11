@@ -18,25 +18,24 @@
 </div>
 <hr>
 <div>
-  <h2 class="staff_heading"><u>Members Of Staff</u></h2>
+  <h2 class="staff_heading"><u>Upcoming Meetings</u></h2>
 <table>
   <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Department</th>
-    <th>Nationality</th>
-    <th>Gender</th>
+    <th>Agenda</th>
+    <th>Leader</th>
+    <th>Notes Taker</th>
+    <th>Start Time</th>
+    <th>End Time</th>
   </tr>
-{% for staf in staff %}
+{% for meeting in meetings %}
   <tr>
-    <td>{{staf.first_name}}</td>
-    <td>{{staf.last_name}}</td>
-    <td>{{staf.groups.all.0.name}}</td>
-    <td>{{staf.nationality}}</td>
-    <td>{{staf.gender}}</td>
+    <td>{{meeting.agenda}}</td>
+    <td>{{meeting.leader}}</td>
+    <td>{{meeting.notes_taker}}</td>
+    <td>{{meeting.start_time}}</td>
+    <td>{{meeting.end_time}}</td>
   </tr>
   {% endfor %}
 </table>
-  </ul>
 </div>
 {% endblock content %}

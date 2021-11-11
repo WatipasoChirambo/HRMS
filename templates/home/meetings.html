@@ -1,18 +1,23 @@
 {% extends "home/base.html" %} {% load static %} {% block content %}
-<table class="center">
+<div>
+  <h2 class="staff_heading"><u>Members Of Staff</u></h2>
+<table>
   <tr>
     <th>Agenda</th>
     <th>Leader</th>
+    <th># of participants</th>
     <th>Start Time</th>
     <th>End Time</th>
   </tr>
-  {% for meeting in meetings %}
+{% for meeting in meetings %}
   <tr>
     <td>{{meeting.agenda}}</td>
     <td>{{meeting.leader}}</td>
+    <td>{{meeting.participants.all.count}}</td>
     <td>{{meeting.start_time}}</td>
     <td>{{meeting.end_time}}</td>
   </tr>
   {% endfor %}
 </table>
+</div>
 {% endblock content %}

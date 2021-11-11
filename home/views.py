@@ -5,9 +5,11 @@ from .models import Meeting, Project, Department, Employee, Task
 def index(request):
     staff = Employee.objects.all()
     tasks = Task.objects.all()
+    meetings = Meeting.objects.all()
     context = {
         'staff':staff,
-        "tasks":tasks
+        "tasks":tasks,
+        "meetings":meetings
     }
     return render(request, 'home/home.html', context)
 
@@ -25,6 +27,14 @@ def departments_view(request):
         'departments':departments,
     }
     return render(request, 'home/departments.html', context)
+
+def department(request, pk):
+    try:
+        departments = Department.objects.get(id=pk)
+        print(departments)
+    except Department.DoesNotExist:
+        Http404
+    return render(request, 'home/department.html', {"department": departments})
 
 def staff_view(request):
     staff = Employee.objects.all()

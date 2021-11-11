@@ -1,0 +1,27 @@
+{
+  "name": "hrms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-home:css": "./node_modules/postcss-cli/bin/postcss ./HRMS/static/css/styles.css -o ./HRMS/static/css/compiled.css",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WatipasoChirambo/HRMS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WatipasoChirambo/HRMS/issues"
+  },
+  "homepage": "https://github.com/WatipasoChirambo/HRMS#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19"
+  }
+}
