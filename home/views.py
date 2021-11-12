@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Meeting, Project, Department, Employee, Task
+from .forms import EmployeeForm
 
 # Create your views here.
 def index(request):
@@ -13,6 +14,9 @@ def index(request):
     }
     return render(request, 'home/home.html', context)
 
+def add_employee(request):
+    form = EmployeeForm()
+    
 
 def meetings_view(request):
     meetings = Meeting.objects.all()

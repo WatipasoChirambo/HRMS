@@ -41,8 +41,23 @@ body {
   grid-template-columns: 3fr 1fr;
   gap:4%;
 }
+.center>div>div>h2{
+  color:#D4B63E;
+}
 .staff_heading{
   color:#bb9140;
+}
+.project_details{
+  display:grid;
+  grid-template-columns: 1.5fr 2fr;
+  margin-top:4%;
+  padding:4%;
+}
+.project_details>div>h4{
+  color:#D4B63E;
+}
+.project_details>div>h4>b{
+  color:black;
 }
 .Meetings {
   border-radius: 4%;
@@ -73,7 +88,7 @@ a{
 }
 .top_nav {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 .top_middle_dash {
   display: grid;

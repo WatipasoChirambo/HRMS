@@ -1,14 +1,33 @@
 {% extends "home/base.html" %} {% load static %} {% block content %}
 <div>
     <h2>
-        Departments
+        <b>Name: {{department.name}}</b>
+        <h4>HOD: <b>{{department.hod.first_name}} {{department.hod.last_name}}</b></h4>
     </h2>
 </div>
-<div class="projects">
-    <div class="project">
-        <h2>{{department.name}}</h2>
-        <p>Members</p>
-        <h3>5</h3>
-      </div>
+<div>
+    <div>
+        <div>
+            <h2>Members</h2>
+          <table>
+            <tr>
+              <th>Members</th>
+              <th>Gender</th>
+              <th>Nationality</th>
+              <th>Education Level</th>
+              <th>Marital Status</th>
+            </tr>
+          {% for member in department.members.all %}
+            <tr>
+              <td>{{member}}</td>
+              <td>{{member.gender}}</td>
+              <td>{{member.nationality}}</td>
+              <td>{{member.education_level}}</td>
+              <td>{{member.marital_status}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+          </div>
+    </div>
 </div>
 {% endblock content %}
