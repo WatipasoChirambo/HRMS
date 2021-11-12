@@ -1,37 +1,11 @@
 {% extends "home/base.html" %} {% load static %} {% block content %}
-<div class="welcome">
-  <h1> <u>Welcome {{user}}</u> </h1>
-</div>
-<div class="top_middle_dash">
-  <div class="Meetings">
-    <h2>Meetings</h2>
-    <h3>5</h3>
-  </div>
-  <div class="Projects">
-    <h2>Projects</h2>
-    <h3>5</h3>
-  </div>
-</div>
-<hr>
 <div>
-  <h2 class="staff_heading"><u>Upcoming Meetings</u></h2>
-<table>
-  <tr>
-    <th>Agenda</th>
-    <th>Leader</th>
-    <th>Notes Taker</th>
-    <th>Start Time</th>
-    <th>End Time</th>
-  </tr>
-{% for meeting in meetings %}
-  <tr>
-    <td>{{meeting.agenda}}</td>
-    <td>{{meeting.leader}}</td>
-    <td>{{meeting.notes_taker}}</td>
-    <td>{{meeting.start_time}}</td>
-    <td>{{meeting.end_time}}</td>
-  </tr>
-  {% endfor %}
-</table>
+    <h2>Register Staff</h2>
+<form method = "POST">
+    {% csrf_token %}
+    {{ form.as_p }} 
+    <input type = "submit" value = "Submit">
+</form>
+<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
 </div>
 {% endblock content %}

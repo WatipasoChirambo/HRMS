@@ -59,6 +59,11 @@ body {
 .project_details>div>h4>b{
   color:black;
 }
+.login{
+  margin: auto !important;
+  width: 60% !important;
+  margin-left:40%;
+}
 .Meetings {
   border-radius: 4%;
   text-align: center;

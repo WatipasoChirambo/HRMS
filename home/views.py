@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Meeting, Project, Department, Employee, Task
-from .forms import EmployeeForm
+from .forms import RegisterForm
+from django.contrib.auth import login
+from django.contrib import messages
+
 
 # Create your views here.
 def index(request):
@@ -15,7 +18,20 @@ def index(request):
     return render(request, 'home/home.html', context)
 
 def add_employee(request):
-    form = EmployeeForm()
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = RegisterForm()
+    return render(request, 'home/register.html', {'form': form})
+    
+    
     
 
 def meetings_view(request):
