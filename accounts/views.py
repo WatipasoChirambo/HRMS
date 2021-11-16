@@ -14,4 +14,4 @@ def sign_up(request):
             login(request,Employee)
             return render(request,'home/home.html')
     context['form']=form
-    return render(request,'registration/sign_up.html',context)
+    return render(request,'registration/register.html',context)

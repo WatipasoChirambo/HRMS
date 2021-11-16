@@ -1,3 +1,4 @@
+from django.http.response import Http404
 from django.shortcuts import render, redirect
 from .models import Meeting, Project, Department, Employee, Task
 from .forms import RegisterForm
@@ -18,22 +19,16 @@ def index(request):
     return render(request, 'home/home.html', context)
 
 def add_employee(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
+    context = {}
+    form = RegisterForm(request.POST or None)
+    if request.method == "POST":
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = RegisterForm()
-    return render(request, 'home/register.html', {'form': form})
+            login(request,Employee)
+            return render(request,'home/home.html')
+    context['form']=form
+    return render(request,'registration/register.html',context)
     
-    
-    
-
 def meetings_view(request):
     meetings = Meeting.objects.all()
     context = {
@@ -50,11 +45,11 @@ def departments_view(request):
 
 def department(request, pk):
     try:
-        departments = Department.objects.get(id=pk)
-        print(departments)
+        group = Department.objects.get(id=pk)
+        members = group.user_set.all()
     except Department.DoesNotExist:
         Http404
-    return render(request, 'home/department.html', {"department": departments})
+    return render(request, 'home/department.html', {"department":members})
 
 def staff_view(request):
     staff = Employee.objects.all()

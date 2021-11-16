@@ -35,11 +35,14 @@ class RegisterForm(UserCreationForm):
         ("Female", "Female"),
         ("Other", "Other"),
     )
+    
     dob = forms.DateField()
     marital_status = forms.ChoiceField(choices=MARITAL_STATUS)
     education_level = forms.ChoiceField(choices=LEVELS)
     gender = forms.ChoiceField( choices=GENDER)
     nationality = forms.ChoiceField( choices=COUNTRIES)
+    
     class Meta:
         model = Employee
         fields = '__all__'
+        exclude = ['staff_user']

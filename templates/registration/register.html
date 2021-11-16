@@ -1,0 +1,13 @@
+{% extends "home/base.html" %} {% load static %} {% block content %}
+<div class="register">
+    <div class="register_items">
+        <h2>Register Staff</h2>
+        <form method = "POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            {{ form.as_p }} 
+            <input type = "submit" value = "Submit">
+        </form>
+        <p class="text-center">If you already have an account, <a href="{% url 'login' %}">Create an account</a> instead.</p>
+    </div>
+</div>
+{% endblock content %}
