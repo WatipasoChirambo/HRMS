@@ -1,8 +1,15 @@
 {% extends "home/base.html" %} {% load static %} {% block content %}
 <div>
-    <h2>
-        Departments
-    </h2>
+    <div class="department_heading">
+        <h2>
+            Departments
+        </h2>
+    </div>
+    <div class="add_department">
+        <button>
+            Add Department
+        </button>
+    </div>
 </div>
 <div class="projects">
     {% for department in departments %}

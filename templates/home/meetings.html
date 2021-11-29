@@ -8,6 +8,7 @@
     <th># of participants</th>
     <th>Start Time</th>
     <th>End Time</th>
+    <th>Date</th>
   </tr>
 {% for meeting in meetings %}
   <tr>
@@ -16,6 +17,7 @@
     <td>{{meeting.participants.all.count}}</td>
     <td>{{meeting.start_time}}</td>
     <td>{{meeting.end_time}}</td>
+    <td></td>
   </tr>
   {% endfor %}
 </table>

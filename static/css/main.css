@@ -22,9 +22,9 @@ body {
   text-decoration: none;
 }
 .navTingz > li > a:hover {
-  border-left: 10px solid #bb9140;
   padding-left: 2%;
   font-weight: 800;
+  text-decoration: underline;
 }
 .navTingz > li {
   color: white;
@@ -46,6 +46,14 @@ body {
 }
 .staff_heading{
   color:#bb9140;
+}
+.add_department>h2{
+  display: flex;
+  justify-content: flex-start;
+}
+.add_department{
+  display: flex;
+  justify-content: flex-end;
 }
 .project_details{
   display:grid;

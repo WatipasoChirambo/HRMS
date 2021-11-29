@@ -2,7 +2,7 @@
 <div class="register">
     <div class="register_items">
         <h2>Register Staff</h2>
-        <form method = "POST" action="{% url 'home' %}">
+        <form method="POST" action="{% url 'home' %}">
             {% csrf_token %}
             {{ form.as_p }} 
             <input type = "submit" value = "Submit">

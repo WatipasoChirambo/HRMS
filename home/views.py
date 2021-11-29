@@ -1,6 +1,6 @@
 from django.http.response import Http404
 from django.shortcuts import render, redirect
-from .models import Meeting, Project, Department, Employee, Task
+from .models import Meeting, Project, Department, Employee, Task 
 from .forms import RegisterForm
 from django.contrib.auth import login
 from django.contrib import messages
@@ -19,15 +19,18 @@ def index(request):
     return render(request, 'home/home.html', context)
 
 def add_employee(request):
-    context = {}
-    form = RegisterForm(request.POST or None)
-    if request.method == "POST":
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            login(request,Employee)
-            return render(request,'home/home.html')
-    context['form']=form
-    return render(request,'registration/register.html',context)
+            return render(request, 'home/home.html')
+        else:
+            messages.warning(request, 'Account creation failed. Please check for possible errors')
+    else:
+        form = RegisterForm()
+    return render(request, 'registration/register.html', context={
+        'form': form,
+    })
     
 def meetings_view(request):
     meetings = Meeting.objects.all()
